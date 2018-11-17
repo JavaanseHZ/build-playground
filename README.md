@@ -21,10 +21,10 @@ minikube start
 ```
 minikube dashboard
 ```
-## install terraform
+## terraform
 [terraform](https://www.terraform.io/intro/getting-started/install.html)
 
-### terraform
+### install terraform
 ```
 curl -LO https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip && unzip terraform_0.11.10_linux_amd64.zip && sudo cp terraform /usr/local/bin/ && rm terraform_0.11.10_linux_amd64.zip && rm terraform
 ```
