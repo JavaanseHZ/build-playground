@@ -1,5 +1,5 @@
 # build-playground
-[slides] (https://javaansehz.github.io/build-playground/)
+[slides](https://javaansehz.github.io/build-playground/)
 ## minikube
 [minikube](https://github.com/kubernetes/minikube)
 ### kubectl
