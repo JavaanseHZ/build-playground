@@ -24,6 +24,10 @@ sudo mv minikube /usr/local/bin
 ```
 minikube start --vm-driver kvm2 --memory=4096
 ```
+###install minikube dashboard
+```
+minikube dashboard
+```
 ###use minikube docker daemon (on this terminal)
 ```
 eval $(minikube docker-env)
