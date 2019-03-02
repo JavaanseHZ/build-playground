@@ -1,6 +1,6 @@
 resource "kubernetes_pod" "backend" {
   //explicit, but not necessary because of reference to my-postgres NodePort
-  //depends_on = [helm_release.my-postgres,]
+  depends_on = ["helm_release.my-postgres",]
 
   metadata {
     name = "backend"
@@ -30,7 +30,7 @@ resource "kubernetes_pod" "backend" {
       }
       env {
         name  = "POSTGRES_DB"
-        value = "my-database"
+        value = "${var.database_name}"
       }
       env {
         name  = "POSTGRES_USER"
@@ -38,7 +38,7 @@ resource "kubernetes_pod" "backend" {
       }
       env {
         name  = "POSTGRES_PASSWORD"
-        value = "secretpassword"
+        value = "${random_string.password.result}"
       }
       readiness_probe {
         http_get {
