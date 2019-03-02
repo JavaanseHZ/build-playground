@@ -1,6 +1,7 @@
-provider "kubernetes" {}
-
 resource "kubernetes_pod" "backend" {
+  //explicit, but not necessary because of reference to my-postgres NodePort
+  //depends_on = [helm_release.my-postgres,]
+
   metadata {
     name = "backend"
     labels {
@@ -13,7 +14,7 @@ resource "kubernetes_pod" "backend" {
       name  = "backend"
       image = "contract-service:kube"
       port {
-        container_port = 80
+        container_port = 8080
       }
       env {
         name  = "POSTGRES_ENABLED"
@@ -39,6 +40,23 @@ resource "kubernetes_pod" "backend" {
         name  = "POSTGRES_PASSWORD"
         value = "secretpassword"
       }
+      readiness_probe {
+        http_get {
+          path = "/actuator/readiness"
+          port = 8080
+        }
+        initial_delay_seconds = 20
+        timeout_seconds = 300
+      }
+      liveness_probe {
+        http_get {
+          path = "/actuator/health"
+          port = 8080
+        }
+        initial_delay_seconds = 20
+        timeout_seconds = 60
+        failure_threshold = 10
+      }
     }
   }
 }
@@ -53,7 +71,7 @@ resource "kubernetes_service" "backend" {
     }
     port {
       port = 80
-      target_port = 80
+      target_port = 8080
     }
   }
 }

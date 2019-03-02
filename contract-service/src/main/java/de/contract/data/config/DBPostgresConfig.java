@@ -23,7 +23,6 @@ import java.util.Properties;
 @ConditionalOnProperty(name = "postgres.enabled", havingValue = "true")
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "de.contract.data.repository")
-//@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
 public class DBPostgresConfig {
 
     @Value(value = "${postgres.host}")

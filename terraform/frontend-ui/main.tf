@@ -1,5 +1,3 @@
-provider "kubernetes" {}
-
 resource "kubernetes_pod" "frontend" {
   metadata {
     name = "frontend"

@@ -20,7 +20,20 @@ spec:
         - name: backend
           image: "contract-service:kube"
           ports:
-          - containerPort: 80
+          - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /actuator/readiness
+              port: 8080
+            initialDelaySeconds: 20
+            timeoutSeconds: 300
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 20
+            timeoutSeconds: 60
+            failureThreshold: 10
 ---
 apiVersion: v1
 kind: Service
@@ -29,7 +42,7 @@ metadata:
 spec:
   ports:
     - port: 80
-      targetPort: 80
+      targetPort: 8080
   selector:
     app: demo
     tier: backend

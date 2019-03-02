@@ -1,5 +1,14 @@
 server:
-  port: ${SERVER_PORT:9543}
+  port: ${SERVER_PORT:8080}
+
+management:
+  endpoint:
+    readyness:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health, readyness
 
 postgres:
   enabled: ${ENABLE_POSTGRES:false}
@@ -8,21 +17,3 @@ postgres:
   db: ${POSTGRES_DB:postgres_demo}
   user: ${POSTGRES_USER:postgres}
   password: ${POSTGRES_PASSWORD:pass}
-#spring:
-#  datasource:
-#    url: jdbc:postgresql://192.168.122.204:31111/my-database
-#    username: postgres
-#    password: secretpassword
-#  jpa:
-#    hibernate:
-#      ddl-auto: update
-#    show-sql: true
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.PostgreSQL94Dialect
-#        current_session_context_class: thread
-#        format_sql: true
-#        jdbc:
-#          lob:
-#            non_contextual_creation: true
-

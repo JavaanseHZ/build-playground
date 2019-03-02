@@ -19,3 +19,5 @@ terraform apply
 ```
 terraform destroy
 ```
+
+${data.kubernetes_secret.my-postgres-postgresql.metadata.0.name}

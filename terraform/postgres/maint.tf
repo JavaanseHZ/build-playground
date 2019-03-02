@@ -1,4 +1,3 @@
-provider "helm" {}
 resource "helm_release" "my-postgres" {
     name      = "my-postgres"
     chart     = "stable/postgresql"
