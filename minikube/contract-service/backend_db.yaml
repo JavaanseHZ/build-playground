@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: demo
+      tier: backend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: backend
+          image: "contract-service:kube"
+          ports:
+          - containerPort: 80
+          env:
+          - name: POSTGRES_ENABLED
+            value: "true"
+          - name: POSTGRES_HOST
+            value: "my-postgres-postgresql.default.svc.cluster.local"
+          - name: POSTGRES_PORT
+            value: "5432"
+          - name: POSTGRES_DB
+            value: "my-database"
+          - name: POSTGRES_USER
+            value: "postgres"
+          - name: POSTGRES_PASSWORD
+            value: "secretpassword"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: demo
+    tier: backend
