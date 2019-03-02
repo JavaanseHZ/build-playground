@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { ContractRestService } from '../../@core/data/contract-rest-service';
-import { EmptyFieldEditorComponent } from '../../@theme/components/table/empty-field-editor';
 
 @Component({
   selector: 'ngx-smart-table',
