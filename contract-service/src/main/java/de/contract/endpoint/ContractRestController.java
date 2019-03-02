@@ -1,7 +1,7 @@
 package de.contract.endpoint;
 
+import de.contract.data.repository.ContractRepository;
 import de.contract.model.Contract;
-import de.contract.repository.ContractRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
