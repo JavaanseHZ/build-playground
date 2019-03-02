@@ -9,16 +9,22 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin
 ```
+#### enable autocompletion
+```
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+```
 ###Install minikube
-
-
-
+```
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x minikube
+sudo mv minikube /usr/local/bin
+```
 
 ##start minikube
 ```
 minikube start --vm-driver kvm2 --memory=4096
 ```
-##use minikube docker daemon
+###use minikube docker daemon (on this terminal)
 ```
 eval $(minikube docker-env)
 ```
