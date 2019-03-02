@@ -22,7 +22,7 @@ sudo mv minikube /usr/local/bin
 
 ##start minikube
 ```
-minikube start --vm-driver kvm2 --memory=4096
+minikube start --vm-driver kvm2 --memory=8192
 ```
 ###install minikube dashboard
 ```
@@ -36,4 +36,9 @@ build images afterwards
 ##start deployments and serivces
 ```
 kubectl create -f [yaml-file]
+```
+
+##access external endpoint
+```
+minikube service frontend --url
 ```
