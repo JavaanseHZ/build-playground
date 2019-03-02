@@ -1,0 +1,22 @@
+version: '3.2'
+services:
+  contract-service:
+    image: contract-service:kube
+    container_name: contract-service
+    ports:
+      - 6000:80
+
+  frontend-ui:
+    image: frontend-ui:kube
+    container_name: frontent-ui
+    ports:
+      - 80
+
+  reverse-proxy:
+    image: reverse-proxy:kube
+    container_name: reverse-proxy
+    ports:
+      - 4400:80
+    depends_on:
+      - frontend-ui
+      - contract-service

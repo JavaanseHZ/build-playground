@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-ui
+spec:
+  selector:
+    matchLabels:
+      app: contract
+      tier: frontend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: contract
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+      - name: frontend-ui
+        image: "frontend-ui:kube"

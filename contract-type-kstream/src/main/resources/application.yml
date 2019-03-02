@@ -1,0 +1,24 @@
+kafka:
+    bootstrap:
+        address: ${KAFKA_HOST:localhost}:9092
+    schemaregistry:
+        address: http://${KAFKA_HOST:localhost}:8081
+
+    stream:
+        application:
+            id: ${APPLICATION_ID:contract-type-stream}
+
+    consumer:
+        topic:
+            event:
+                contract:
+                    created: ContractCreated
+        offset: earliest
+    producer:
+        topic:
+            event:
+                contract:
+                    insurance:
+                        created: InsuranceContractCreated
+                    realestate:
+                        created: RealEstateContractCreated

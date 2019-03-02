@@ -1,13 +1,13 @@
 {
   "name": "presentation",
   "version": "1.0.0",
-  "description": "Kafka Playground Presentation",
+  "description": "Build Playground Presentation",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JavaanseHZ/kafka-playground.git"
+    "url": "git+https://github.com/JavaanseHZ/build-playground.git"
   },
   "bugs": {
-    "url": "https://github.com/JavaanseHZ/kafka-playground/issues"
+    "url": "https://github.com/JavaanseHZ/build-playground/issues"
   },
   "scripts": {
     "test": "grunt test",
