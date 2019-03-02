@@ -7,11 +7,11 @@ resource "helm_release" "my-postgres" {
         name = "postgresqlDatabase"
         value = "${var.database_name}"
     }
-
-    /*set {
+    // use existingSecret
+    set {
         name = "postgresqlPassword"
         value = "${random_string.password.result}"
-    }*/
+    }
 
     set {
         name = "service.type"
