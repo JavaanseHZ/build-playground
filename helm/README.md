@@ -1,10 +1,21 @@
 # Helm
+## Simple example
+```
+helm create hello-world
+```
+```
+helm install hello-world --set service.type=NodePort
+```
+
 ## Install Postgres Helm Chart
 [Postgres Helm Chart](https://github.com/helm/charts/tree/master/stable/postgresql)
 ```
 helm install --name my-postgres stable/postgresql /
---set postgresqlPassword=secretpassword,postgresqlDatabase=my-database,service.type=NodePort,service.nodePort=31111
-
+--set postgresqlPassword=secretpassword,postgresqlDatabase=my-database,service.type=NodePort
+```
+or
+```
+helm install --name my-postgres -f values.yaml stable/postgresql
 ```
 ### Access from cli outside cluster
 ```
