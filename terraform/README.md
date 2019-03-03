@@ -1,23 +1,18 @@
-#Terraform
-##Installation
-[Donwload newest Version](https://learn.hashicorp.com/terraform/getting-started/install)
-Unzip and copy to /usr/local/bin
-##Initilizaion of Providers
+# Terraform
+## Initilizaion of providers
 go to folder with main.tf file (/terraform in repo)
 ```
 terraform init
 ```
-##Plan Deployment
+## Plan Deployment
 ```
 terraform plan
 ```
-##Apply Deployment
+## Apply Deployment
 ```
 terraform apply
 ```
-##Destroy Deployment
+## Destroy Deployment
 ```
 terraform destroy
 ```
-
-${data.kubernetes_secret.my-postgres-postgresql.metadata.0.name}

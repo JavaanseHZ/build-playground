@@ -1,37 +1,46 @@
-# build-playground
+# Build-Playground
 [slides](https://javaansehz.github.io/build-playground/)
-## minikube
+## Minikube
 [minikube](https://github.com/kubernetes/minikube)
-### kubectl
+
+### Prerequisites
+[Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+[VirtualBox](https://help.ubuntu.com/community/VirtualBox) or [KVM](https://help.ubuntu.com/community/KVM/Installation)/[KVM-Driver](https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#kvm2-driver)
+
+### Install kubectl
 ```
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl && sudo cp kubectl /usr/local/bin/ && rm kubectl
 ```
-#### enable autocompletion
+#### Enable autocompletion
 ```
 echo "source <(kubectl completion bash)" >> ~/.bashrc
 ```
-### install minikube
+### Install minikube
 ```
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && sudo install minikube-linux-amd64 /usr/local/bin/minikube
 ```
-### start minikube
-```
-minikube start
-```
-#### open dashboard
-```
-minikube dashboard
-```
-## terraform
-[terraform](https://www.terraform.io/intro/getting-started/install.html)
 
-### install terraform
+## Helm
+[Helm](https://helm.sh/)
+## Install Helm
+```
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
+chmod 700 get_helm.sh
+./get_helm.sh
+```
+with running minikube cluster (i.e. "kubectl config current-context" or what's in ~/.kube):
+```
+helm init
+helm repo update
+```
+## Terraform
+[terraform](https://www.terraform.io)
+
+### Install terraform
 ```
 curl -LO https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip && unzip terraform_0.11.10_linux_amd64.zip && sudo cp terraform /usr/local/bin/ && rm terraform_0.11.10_linux_amd64.zip && rm terraform
 ```
-#### enable autocompletion
+#### Enable autocompletion
 ```
 terraform -install-autocomplete
 ```
-## jenkins
-* [jenkins in docker](https://github.com/jenkinsci/docker)
