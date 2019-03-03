@@ -15,13 +15,14 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
 ```
 echo "source <(kubectl completion bash)" >> ~/.bashrc
 ```
-### Install minikube
+### Install Minikube
 ```
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && sudo install minikube-linux-amd64 /usr/local/bin/minikube
 ```
 
 ## Helm
 [Helm](https://helm.sh/)
+[Helm Charts](https://github.com/helm/charts)
 ## Install Helm
 ```
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
@@ -33,10 +34,11 @@ with running minikube cluster (i.e. "kubectl config current-context" or what's i
 helm init
 helm repo update
 ```
-## Terraform
-[terraform](https://www.terraform.io)
 
-### Install terraform
+## Terraform
+[Terraform](https://www.terraform.io)
+[Terraform providers](https://www.terraform.io/docs/providers/)
+### Install Terraform
 ```
 curl -LO https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip && unzip terraform_0.11.10_linux_amd64.zip && sudo cp terraform /usr/local/bin/ && rm terraform_0.11.10_linux_amd64.zip && rm terraform
 ```
