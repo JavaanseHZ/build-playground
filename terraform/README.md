@@ -16,3 +16,11 @@ terraform apply
 ```
 terraform destroy
 ```
+## Complete with variable
+```
+terraform apply -var="database-name=other-database"
+```
+
+```
+terraform apply -var-file="test.tfvars"
+```
