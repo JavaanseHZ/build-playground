@@ -21,11 +21,6 @@ resource "docker_container" "kafka" {
   name     = "kafka_container"
 
   ports {
-    external = 58080
-    internal = 8080
-  }
-
-  ports {
     external = 2181
     internal = 2181
   }
@@ -52,11 +47,11 @@ resource "docker_container" "kafka" {
 
   env = ["ADV_HOST=${var.hostname}", "SAMPLEDATA=0", "RUNTESTS=0"]
 }
-/*
+
 provider "kafka-connect" {
   url = "http://localhost:8083"
 }
-
+/*
 variable database_ip {}
 variable database_port {}
 variable database_name {}
@@ -71,7 +66,7 @@ resource "kafka-connect_connector" "contracts-source" {
     "timestamp.column.name"= "ts"
     "topic.prefix"= "Contracts"
     "tasks.max"= "1"
-    "connection.url"= "jdbc:postgresql://${var.database_ip}:${database_port}/${var.database_name}?user=postgres&password=${var.database_password}"
+    "connection.url"= "jdbc:postgresql://${var.database_ip}:${var.database_port}/${var.database_name}?user=postgres&password=${var.database_password}"
     "poll.interval.ms"= 1000
     "query" = "SELECT * FROM contracts"
     "key.converter"= "io.confluent.connect.avro.AvroConverter"
