@@ -1,7 +1,7 @@
 # Minikube
 ## Start minikube
 ```
-minikube start --vm-driver kvm2 --memory=8192
+minikube start --vm-driver kvm2 --memory=4096
 ```
 ### Install minikube dashboard
 ```
