@@ -1,14 +1,18 @@
 package de.contract.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
 @Table(name= "contracts")
 public class Contract implements Serializable {
+
+    @Basic(optional = false)
+    @Column(name = "ts", insertable = false, updatable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date ts;
 
     @Id
     private UUID id;
@@ -58,4 +62,3 @@ public class Contract implements Serializable {
     }
 
 }
-

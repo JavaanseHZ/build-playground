@@ -1,5 +1,5 @@
 server:
-  port: ${SERVER_PORT:8080}
+  port: ${SERVER_PORT:25000}
 
 management:
   endpoint:
@@ -8,7 +8,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, readyness
+        include: health, readiness
 
 postgres:
   enabled: ${ENABLE_POSTGRES:false}
