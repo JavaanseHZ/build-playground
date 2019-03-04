@@ -1,6 +1,4 @@
 resource "kubernetes_pod" "backend" {
-  //explicit, but not necessary because of reference to my-postgres NodePort
-  depends_on = ["helm_release.my-postgres",]
 
   metadata {
     name = "backend"
@@ -22,7 +20,7 @@ resource "kubernetes_pod" "backend" {
       }
       env {
         name  = "POSTGRES_HOST"
-        value = "my-postgres-postgresql.default.svc.cluster.local"
+        value = "${module.postgres.output_name}-postgresql.default.svc.cluster.local"
       }
       env {
         name  = "POSTGRES_PORT"

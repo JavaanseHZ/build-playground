@@ -5,12 +5,12 @@ resource "helm_release" "my-postgres" {
 
     set {
         name = "postgresqlDatabase"
-        value = "${var.database-name}"
+        value = "${var.input_database_name}"
     }
     // use existingSecret
     set {
         name = "existingSecret"
-        value = "${kubernetes_secret.db-secret.metadata.0.name}"
+        value = "${var.input_secret_name}"
     }
 
     set {

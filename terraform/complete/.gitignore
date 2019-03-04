@@ -1,7 +1,0 @@
-.terraform/
-.DS_Store
-.svn
-log/*.log
-tmp/**
-*.backup
-*.tfstate
